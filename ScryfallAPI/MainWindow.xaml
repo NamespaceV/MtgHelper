@@ -5,16 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScryfallAPI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="416.619" Width="525">
+        Title="MainWindow" Height="300" Width="300">
     <Grid>
         <DockPanel>
-            <DockPanel DockPanel.Dock="Top" >
-                <Label>Set:</Label>
-                <TextBox Text="{Binding SetSymbol}" />
-            </DockPanel>
-            <Button DockPanel.Dock="Top" Command="{Binding GetCardsCommand}">Get card list</Button>
-            <Button DockPanel.Dock="Bottom" Command="{Binding SaveFileCommand}">SaveFile</Button>
-            <TextBox Text="{Binding MainText}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"/>
+            <Button DockPanel.Dock="Top" Margin="10,10,10,0" VerticalAlignment="Top" Command="{Binding DownloadSetCommand}">Download Set</Button>
+            <Button DockPanel.Dock="Top" Margin="10,10,10,0" VerticalAlignment="Top" Command="{Binding FindMissingCommand}">Find missing</Button>
         </DockPanel>
     </Grid>
 </Window>

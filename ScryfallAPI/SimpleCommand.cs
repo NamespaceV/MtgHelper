@@ -3,32 +3,30 @@
     using System;
     using System.Windows.Input;
 
-    public partial class MainWindow
+    public class SimpleCommand : ICommand
     {
-        public class SimpleCommand : ICommand
+        private Action _execute;
+        private Func<bool> _canExecute;
+        public SimpleCommand(Action execute, Func<bool> canExecute = null)
         {
-            private Action _execute;
-            private Func<bool> _canExecute;
-            public SimpleCommand(Action execute, Func<bool> canExecute = null)
+            if (canExecute == null)
             {
-                if (canExecute == null)
-                {
-                    canExecute = (() => true);
-                }
-                _execute = execute;
-                _canExecute = canExecute;
+                canExecute = (() => true);
             }
-            public event EventHandler CanExecuteChanged;
+            _execute = execute;
+            _canExecute = canExecute;
+        }
 
-            public bool CanExecute(object parameter)
-            {
-                return _canExecute();
-            }
+        public event EventHandler CanExecuteChanged;
 
-            public void Execute(object parameter)
-            {
-                _execute();
-            }
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute();
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute();
         }
     }
 }

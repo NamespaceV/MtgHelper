@@ -1,0 +1,24 @@
+﻿<Window x:Class="ScryfallAPI.FindMissingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScryfallAPI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="416.619" Width="525">
+    <Grid>
+        <DockPanel>
+            <DockPanel Margin="2,2,2,2"  DockPanel.Dock="Top">
+                <TextBlock>❌</TextBlock>
+                <Button Command="{Binding GetCollectionCardsCommand}">Pick collection list</Button>
+            </DockPanel>
+            <DockPanel Margin="2,2,2,2" DockPanel.Dock="Top">
+                <TextBlock>❌</TextBlock>
+                <Button DockPanel.Dock="Top" Command="{Binding GetRequestedCardsCommand}">Pick request list</Button>
+            </DockPanel>
+            <Button Margin="2,2,2,2" DockPanel.Dock="Top" Command="{Binding CalculateDiffCommand}">Calc missing</Button>
+            <Button DockPanel.Dock="Bottom" Command="{Binding SaveFileCommand}">Save Missing</Button>
+            <TextBox Text="{Binding MainText}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"/>
+        </DockPanel>
+    </Grid>
+</Window>
