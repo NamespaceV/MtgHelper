@@ -19,6 +19,11 @@
 
         public event EventHandler CanExecuteChanged;
 
+        public void UpdateCanExecute()
+        {
+            CanExecuteChanged(this, new EventArgs());
+        }
+
         public bool CanExecute(object parameter)
         {
             return _canExecute();
